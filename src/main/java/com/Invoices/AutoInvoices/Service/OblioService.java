@@ -42,7 +42,7 @@ public class OblioService {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
 
-            String body = "{}";//client.secret Oblio
+            String body = "{}";
 
             HttpEntity<String> request = new HttpEntity<>(body, headers);
             ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, request, String.class);
@@ -89,7 +89,7 @@ public class OblioService {
         Product produs = new Product();
         produs.setName("Ore robotica Melted");
         produs.setPrice(10.0);
-        produs.setMeasuringUnit("buc"); //asa cum cere oblio
+        produs.setMeasuringUnit("buc"); 
         produs.setQuantity(6);
 
 
@@ -104,7 +104,6 @@ public class OblioService {
 
         ResponseEntity<String> response = restTemplate.postForEntity(url, requestEntity, String.class);
 
-        //Sa vedem ce zice Oblio
         if(response.getStatusCode() == HttpStatus.OK){
 
             try {
